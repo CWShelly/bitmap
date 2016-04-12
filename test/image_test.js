@@ -1,9 +1,18 @@
-const expect = require('chai').expect;
-const bmt = require(__dirname + '../../lib/change.js');
+const fs = require('fs');
 
-describe('size of the file',()=>{
-  beforeEach(()=>{
-    this.file = palette.bmp;
-    it('should equal the size of the newly created file');
+
+
+// const change = require(__dirname + '/../lib/eg');
+const change = require(__dirname + '/../lib/change');
+
+const expect = require('chai').expect;
+
+const picture = fs.readFileSync(__dirname +'/../palette.bmp');
+const alteredPicture = fs.readFileSync(__dirname +'/../adjusted_picture.bmp');
+
+
+describe('testing the size', ()=>{
+  it('should output a new bmp file that is equal to the size of the    original',()=>{
+    expect(picture.length === alteredPicture.length);
   });
 });
